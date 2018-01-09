@@ -1,0 +1,14 @@
+from <compName>.iSightProduct_<compName>.iSightProduct_<compName>_test_suite import Product_<compName>_TestSuite
+from <compName>.iSightProduct_<compName>.EP_suites.test_cases.TC_Sample import TC_Sample
+
+
+class TS_Sample(Product_<compName>_TestSuite):
+    
+    def __init__(self, report ,val_type = 'All'):
+        self.__report = report
+        self.type = val_type
+
+    def run(self, validations, testMatchedWith=None):
+        test_case = TC_Sample()
+        TC_Sample.report = self.__report
+        test_case.runTest(validations, testMatchedWith)

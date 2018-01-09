@@ -1,0 +1,22 @@
+from framework.suite import abstract_test_suite
+from framework.helper import iSightException
+from framework.helper.Report import Report
+from iSightProduct_<compName>.iSightProduct_<compName>_config import *
+from <compName>.iSightProduct_<compName>.iSightProduct_<compName>_config import PRODUCT_<compName>
+
+class Product_<compName>_TestSuite(abstract_test_suite.AbstractTestSuite):
+    
+    def __init__(self):
+        self.report = Report(PRODUCT_<compName>)
+
+    def getObject(self, endpoint, val_type = 'All'):
+          
+        if endpoint == 'sample':
+            from <compName>.iSightProduct_<compName>.EP_suites.TS_Sample import TS_Sample
+            return TS_Sample(self.report, val_type)
+
+        else:
+            raise iSightException.UnknownEndpointException()
+    
+    def getReport(self):
+        return self.report

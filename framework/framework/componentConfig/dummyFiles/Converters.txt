@@ -1,0 +1,15 @@
+from <compName>.iSightProduct_<compName>.helper import utils as util
+import <compName>.iSightProduct_<compName>.iSightProduct_<compName>_config  as config 
+
+class DataConverter():
+    
+    def convert(self, testData):
+        util.testData = testData
+        originalUrls = testData.get('url')
+        newURLList= []
+        baseUrl = config.PROTOCOL + "://" + config.server_address
+        for subURL in originalUrls:
+            newURLList.append(baseUrl + subURL)
+         
+        testData['url'] = newURLList
+        return testData    

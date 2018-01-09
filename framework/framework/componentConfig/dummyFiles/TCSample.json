@@ -1,0 +1,13 @@
+{
+	"test_DV_Sample": [
+	{
+		"expectedMessage": "Message which will be displayed on successful result",
+		"expectedErrorMessage" : "Message which will be displayed when test case fails",
+		"testLinkId": "<Test Case ID from testlink>",
+		"url": [""],
+		"valuesToVerify":[{}],
+		"Add values as per your need": "" 
+	}
+	]
+
+}

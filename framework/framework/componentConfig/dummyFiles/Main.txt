@@ -1,0 +1,55 @@
+__author__ = 'mkodesia'
+import time
+from framework.factory.product_factory import ProductFactory
+from framework.helper.Globals import logs
+import argparse
+import framework.helper.Globals as Globals
+import traceback
+import <compName>.iSightProduct_<compName>.iSightProduct_<compName>_config as product_config
+from <compName>.iSightProduct_<compName>.iSightProduct_<compName>_test_suite import Product_<compName>_TestSuite
+import sys
+import json
+
+def main():
+
+    try:
+        p = argparse.ArgumentParser(description='some description')
+        p.add_argument("-endPoints", nargs='+', help="List of endpoints")
+        p.add_argument('-validations', nargs='+', help="List of endpoints")
+        p.add_argument('-updateTestLink',default='', action='store_true', help='Update the test link with the results if given, else does not update TestLink')
+        p.add_argument('-buildNo',default=None, help='build No, under which test cases will be marked as passed or failed for example 2.3.292')
+        p.add_argument('-testMatchedWith',default=None, help='provide the test case name or wildcard, it will run that test case only')
+        p.add_argument('-testToRun',default=None, help='Give any identity of test case only which need to run in json format like')
+        args = p.parse_args()
+        if args.updateTestLink:
+            Globals.TESTLINK=True
+        if args.buildNo:
+            Globals.BUILDNO = args.buildNo
+        logs.info("*********************NEW RUN*******************\n")
+        start = time.time()
+        logs.info("Automation starts at timestamp: " + str(int(time.time())))
+        if args.validations:
+            validations = ",".join(args.validations)
+        else:
+            validations = ['ALL']
+
+        if args.testToRun:
+            try:
+                Globals.TEST_TO_RUN = json.loads(args.testToRun)
+            except Exception:
+                print '''-testToRun' only supports dictionary format i.e. -testToRun '{"testLinkId": "IB--723", "expectedResponseCode" : 203}'''
+                traceback.print_exc()
+                sys.exit()
+
+        endpoints = args.endPoints[0].split(",") or product_config.PRODUCT_EP_LIST 
+        ProductFactory().run(endpoints, validations, Product_<compName>_TestSuite(),args.testMatchedWith)
+
+        logs.info("Total Time taken in Validation is : %s Minutes" % ((time.time() - start)/60))
+        logs.info("Automation Ends here")
+    except Exception as e:
+        print e
+        print traceback.format_exc()
+        logs.error("Some Exception occurred!!")
+        raise
+
+main()

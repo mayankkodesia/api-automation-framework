@@ -1,0 +1,51 @@
+import os
+import traceback
+
+from subprocess import PIPE
+import subprocess
+
+import pathlib
+import email
+import hmac
+import hashlib
+import cgi
+__author__ = 'Mayank Kodesia'
+
+import <compName>.iSightProduct_<compName>.iSightProduct_<compName>_config as cfg
+from framework.helper.Utility import Utility
+from framework.helper.URLFormer import URLFormer
+import framework.helper.Globals as Globals 
+
+urlFormer = URLFormer()
+
+global i
+i= 0
+
+def getTestDetailObject(url, testLinkId, message, failReason = None, response = None, timeTaken="Not calculated"):
+    global i
+    i+=1
+    return {""+ str(i): {'projectId': {'value': cfg.PROJECT_ID, 'visible':False},
+                         'testPlanId':{'value': cfg.PLAN_ID, 'visible': False}, 
+                         'userKey': {'value': cfg.USER_KEY, 'visible' : False}, 
+                         'testCaseId':{'value': ""+ str(i), 'visible' : True, 'order': 1}, 
+                         'URL': {'value': url, 'visible': True, 'order': 2}, 
+                         'testLinkId': {'value': testLinkId, 'visible': True, 'order':6},
+                         'timeTaken<br/> (seconds)': {'value': timeTaken, 'visible': False, 'order':5}, 
+                         'status': {'value': '', 'visible': True, 'order': 4},
+                         'description': {'value':{'failReason':failReason, 'response':response, 'message':message},
+                                         'visible': True, 'order':3}
+                         
+                         }
+            }
+
+
+def updateResults(result, errorMessage, reportObj, URLResponse):
+    libUtil  = Utility()
+    errorMessage = cgi.escape(errorMessage)
+    if result:
+        testObj = getTestDetailObject("<br/>".join(Globals.TEST_DATA.get('url')), Globals.TEST_DATA.get('testLinkId'), message = Globals.TEST_DATA.get('expectedMessage'), response=URLResponse)
+        libUtil.markTestCasePassed(reportObj, 'DataValidation', testObj)  
+    else:
+        testObj = getTestDetailObject("<br/>".join(Globals.TEST_DATA.get('url')), Globals.TEST_DATA.get('testLinkId'), message = Globals.TEST_DATA.get('expectedErrorMessage'), failReason=errorMessage ,  response=URLResponse)
+        libUtil.markTestCaseFailed(reportObj, 'DataValidation', testObj)
+ 

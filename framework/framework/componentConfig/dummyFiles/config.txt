@@ -1,0 +1,13 @@
+PRODUCT_<compName> = '<compName>'
+PRODUCT_EP_LIST = ['sample']
+
+
+PROTOCOL = "https"
+HTTPS = True
+
+PLAN_ID = "<put test plan Id from testlink>"
+PROJECT_ID = "<put test project Id from testlink>"
+USER_KEY = "<put user key from testlink settings>"
+
+
+server_address = "<put server address>"

@@ -1,0 +1,26 @@
+import os
+__author__ = 'Mayank Kodesia'
+
+from framework.suite.isight_automation_test_case import iSightAutomationTestCase
+from framework.helper.Utility import Utility
+from framework.helper.URLFormer import URLFormer
+import <compName>.iSightProduct_<compName>.iSightProduct_<compName>_config as config
+from <compName>.iSightProduct_<compName>.helper import utils
+from framework.helper.Browser import Browser
+import platform
+
+class TC_Base(iSightAutomationTestCase):
+    report=None
+    __testData ={}
+    libUtil = Utility()
+    urlFormer = URLFormer()
+    testFilePath = os.path.join(os.path.dirname(__file__).strip(), "test_data", "TC_Sample.json")
+    
+
+        
+    def setUp(self):
+		pass        
+    
+    def tearDown(self):
+        pass
+

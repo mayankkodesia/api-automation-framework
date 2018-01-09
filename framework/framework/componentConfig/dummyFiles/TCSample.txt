@@ -1,0 +1,37 @@
+''''__author__ = 'Mayank Kodesia'''
+
+from framework.helper.DataLoader import dataloader
+
+from <compName>.iSightProduct_<compName>.EP_suites.test_cases.TC_Base import TC_Base as TC_Base
+from <compName>.iSightProduct_<compName>.helper import utils
+import <compName>.iSightProduct_<compName>.iSightProduct_<compName>_config as config
+
+import traceback
+import time
+import json
+
+from <compName>.iSightProduct_<compName>.helper.Converters import DataConverter
+import sys
+import platform
+
+
+class TC_Sample(TC_Base):
+    
+    report=None
+
+    def test_DV_container(self):
+         
+        @dataloader(testFile=self.testFilePath, converters={DataConverter})
+        def test_DV_Sample(expectedMessage, expectedErrorMessage, testLinkId, url,valuesToVerify):
+            
+            try:
+            	result= ""
+            	errorMessage = ""
+                '''<Your test case validation logic goes here>'''
+                utils.updateResults(result, errorMessage, self.report, URLResponse="")
+                
+            except Exception:
+                utils.updateResults(False, traceback.format_exc(),self.report, URLResponse="")
+
+
+    
