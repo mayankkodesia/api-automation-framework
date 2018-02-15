@@ -2,8 +2,6 @@ from lxml import etree
 import os
 from framework.helper.Report import Report
 from framework.helper.Globals import logs
-# from isight.lib.Report import Report
-# from isight.lib.Globals import logs
 class XMLSchemaValidator(object):
     '''
     Validates XMl as per schema and return the Result and Response

@@ -1,8 +1,8 @@
 from framework.suite import abstract_test_suite
-from framework.helper import iSightException
+from framework.helper import productException
 from framework.helper.Report import Report
-from iSightProduct_<compName>.iSightProduct_<compName>_config import *
-from <compName>.iSightProduct_<compName>.iSightProduct_<compName>_config import PRODUCT_<compName>
+from product_<compName>.product_<compName>_config import *
+from <compName>.product_<compName>.product_<compName>_config import PRODUCT_<compName>
 
 class Product_<compName>_TestSuite(abstract_test_suite.AbstractTestSuite):
     
@@ -12,11 +12,11 @@ class Product_<compName>_TestSuite(abstract_test_suite.AbstractTestSuite):
     def getObject(self, endpoint, val_type = 'All'):
           
         if endpoint == 'sample':
-            from <compName>.iSightProduct_<compName>.EP_suites.TS_Sample import TS_Sample
+            from <compName>.product_<compName>.EP_suites.TS_Sample import TS_Sample
             return TS_Sample(self.report, val_type)
 
         else:
-            raise iSightException.UnknownEndpointException()
+            raise productException.UnknownEndpointException()
     
     def getReport(self):
         return self.report

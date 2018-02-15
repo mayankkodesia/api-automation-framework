@@ -1,23 +1,23 @@
 
-class iSightBaseException(Exception):
+class productBaseException(Exception):
     """"Base Exception class for all type of framework Exception"""
 
     def __str__(self):
         print str(self)
 
-class IncompleteFrameworkException(iSightBaseException):
+class IncompleteFrameworkException(productBaseException):
     """"""
     pass
 
-class UnknownFrameworkException(iSightBaseException):
+class UnknownFrameworkException(productBaseException):
     """"""
     pass
 
-class UnknownEndpointException(iSightBaseException):
+class UnknownEndpointException(productBaseException):
     """"""
     pass
 
-class InvalidProductException(iSightBaseException):
+class InvalidProductException(productBaseException):
     """"""
     pass
 

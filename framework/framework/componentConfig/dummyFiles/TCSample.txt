@@ -2,15 +2,15 @@
 
 from framework.helper.DataLoader import dataloader
 
-from <compName>.iSightProduct_<compName>.EP_suites.test_cases.TC_Base import TC_Base as TC_Base
-from <compName>.iSightProduct_<compName>.helper import utils
-import <compName>.iSightProduct_<compName>.iSightProduct_<compName>_config as config
+from <compName>.product_<compName>.EP_suites.test_cases.TC_Base import TC_Base as TC_Base
+from <compName>.product_<compName>.helper import utils
+import <compName>.product_<compName>.product_<compName>_config as config
 
 import traceback
 import time
 import json
 
-from <compName>.iSightProduct_<compName>.helper.Converters import DataConverter
+from <compName>.product_<compName>.helper.Converters import DataConverter
 import sys
 import platform
 

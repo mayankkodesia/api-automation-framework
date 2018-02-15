@@ -11,7 +11,7 @@ import hashlib
 import cgi
 __author__ = 'Mayank Kodesia'
 
-import <compName>.iSightProduct_<compName>.iSightProduct_<compName>_config as cfg
+import <compName>.product_<compName>.product_<compName>_config as cfg
 from framework.helper.Utility import Utility
 from framework.helper.URLFormer import URLFormer
 import framework.helper.Globals as Globals 

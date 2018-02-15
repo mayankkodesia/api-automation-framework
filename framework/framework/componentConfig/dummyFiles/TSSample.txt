@@ -1,5 +1,5 @@
-from <compName>.iSightProduct_<compName>.iSightProduct_<compName>_test_suite import Product_<compName>_TestSuite
-from <compName>.iSightProduct_<compName>.EP_suites.test_cases.TC_Sample import TC_Sample
+from <compName>.product_<compName>.product_<compName>_test_suite import Product_<compName>_TestSuite
+from <compName>.product_<compName>.EP_suites.test_cases.TC_Sample import TC_Sample
 
 
 class TS_Sample(Product_<compName>_TestSuite):

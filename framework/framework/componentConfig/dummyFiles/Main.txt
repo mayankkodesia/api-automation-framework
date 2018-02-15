@@ -5,8 +5,8 @@ from framework.helper.Globals import logs
 import argparse
 import framework.helper.Globals as Globals
 import traceback
-import <compName>.iSightProduct_<compName>.iSightProduct_<compName>_config as product_config
-from <compName>.iSightProduct_<compName>.iSightProduct_<compName>_test_suite import Product_<compName>_TestSuite
+import <compName>.product_<compName>.product_<compName>_config as product_config
+from <compName>.product_<compName>.product_<compName>_test_suite import Product_<compName>_TestSuite
 import sys
 import json
 

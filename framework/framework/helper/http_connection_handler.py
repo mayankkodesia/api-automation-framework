@@ -1,6 +1,6 @@
 '''
 Created on 23-Dec-2014
-@author: Satish Mishra
+@author: Mayank Kodesia
 '''
 import httplib
 import json
@@ -9,7 +9,6 @@ from framework.helper.Globals import logs
 import framework.helper.Globals as Globals
 
 
-# import iSightProduct_iTrax.iSightProduct_iTrax_config as config
 class HttpConnectionHandler(object):
     '''
     This class is used to request a endpoint and get the response back.
@@ -67,11 +66,3 @@ class HttpConnectionHandler(object):
     def close_connection(self):
         """Close HTTP connection"""
         self.http_connection.close()
-# Below code for testing purposes. It will be erased.
-# if __name__ == '__main__':
-#     conn = HttpConnectionHandler(config)
-#     AUTH_TOKEN = 'Token ZZ+mWWvukJROSkwFk26I821uhJ97InVzZXJuYW1lIjoic21pc2hyYSIsImFwcElkIjoiOTA1YTE4ZmEwN2Q3YmIwZjAwNmZlYThiM2I1MTk3YmIwYjMxMWNlOTQ0MTM2ODY5MTZkMDdkNDI0ZDExNmE0IiwiZGF0YSI6eyJncm91cHMiOltdfX0='
-#     headers = {'authorization': AUTH_TOKEN}
-#     url = '/itrax/?title=unique_name_satish_123&type=Case'
-#     conn.request("POST", url, headers)
-#     print conn.json_response()

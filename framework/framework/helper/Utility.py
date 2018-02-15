@@ -165,7 +165,7 @@ class Utility(object):
             else :
                 return True, ""
 
-    def getElementsSortedListByFieldName(self, response, field, URL='', sort=True, intValues=True, limit=None, lowerCase=False, removeEmptyValue=True, text='id="isight:', closetext='" version'):
+    def getElementsSortedListByFieldName(self, response, field, URL='', sort=True, intValues=True, limit=None, lowerCase=False, removeEmptyValue=True, text='id=":', closetext='" version'):
         '''
         returns sorted list of elements from response
         Check if response is xml, json or csv.
@@ -304,9 +304,6 @@ class Utility(object):
             ET.fromstring(string)
             return True
         except Exception:
-            if "<iSIGHTPartners><success>" in string and '<?xmlversion="1.0"' in string:
-                ''' That means string has been cleaned from spaces but its still an xml and should be treated as xml'''
-                return True
             return False
         
     def generateUniqueName(self, prefix="", suffix=""):

@@ -22,8 +22,7 @@ class TestLinkHandler(object):
 
     def __init__(self, planId, projectId, userKey):
         ''' For startup testLink we should have server URL and user keys generated through GUI '''
-#         os.environ["TESTLINK_API_PYTHON_SERVER_URL"] = "http://testlink-d01.qa.isightpartners.net/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
-        os.environ["TESTLINK_API_PYTHON_SERVER_URL"] = "http://testlink-m01.prod.isightpartners.net/lib/api/xmlrpc/v1/xmlrpc.php"
+        os.environ["TESTLINK_API_PYTHON_SERVER_URL"] = "http://<test link server>/lib/api/xmlrpc/v1/xmlrpc.php"
         os.environ["TESTLINK_API_PYTHON_DEVKEY"] = userKey#"e4ba9a9f6e3f8cda0a96a989bd8082b2"  #Automation user on Testlink
         self.tls = testlink.TestLinkHelper().connect(testlink.TestlinkAPIClient)
 

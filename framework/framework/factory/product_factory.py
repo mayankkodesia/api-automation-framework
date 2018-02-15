@@ -1,4 +1,4 @@
-from framework.helper import Report, iSightException
+from framework.helper import Report, productException
 from framework.helper.Globals import logs
 
 
